@@ -87,6 +87,11 @@ body.lang-zh {
   padding: 0.5rem 0 2rem;
 }
 
+.main--flow {
+  justify-content: flex-start;
+  padding-top: 0.1rem;
+}
+
 .panel {
   display: none;
   flex-direction: column;

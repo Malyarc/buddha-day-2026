@@ -79,7 +79,7 @@ export default function App() {
         />
       </header>
 
-      <main className="main" role="main">
+      <main className={`main ${phase === "lang" ? "" : "main--flow"}`.trim()} role="main">
         <section
           className={panelClass(phase === "lang")}
           data-phase="lang"
@@ -96,6 +96,9 @@ export default function App() {
             </button>
             <button type="button" className="btn btn--secondary" onClick={() => selectLang("zh")}>
               中文
+            </button>
+            <button type="button" className="btn btn--secondary" onClick={() => selectLang("es")}>
+              Español
             </button>
           </div>
         </section>
