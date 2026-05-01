@@ -65,8 +65,10 @@ export default function App() {
 
   const logoMaskUrl = `${import.meta.env.BASE_URL}tzu-chi-60-logo-mask.png`;
 
+  const isLangPhase = phase === "lang";
+
   return (
-    <div className="page" aria-live="polite">
+    <div className={`page${isLangPhase ? "" : " page--flow"}`} aria-live="polite">
       <header className="brand" role="banner">
         <div
           className="brand__logo"

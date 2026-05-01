@@ -61,6 +61,15 @@ body.lang-zh {
   padding: clamp(0.75rem, 3vw, 1.25rem) 0 0.25rem;
 }
 
+/* Stages 2–4: less space under logo before main content */
+.page--flow .brand {
+  padding: clamp(0.35rem, 2vw, 0.6rem) 0 0;
+}
+
+.page--flow .brand__logo {
+  width: min(240px, 72vw);
+}
+
 /* Masked artwork: fills with exact --color-primary (see public/tzu-chi-60-logo-mask.png) */
 .brand__logo {
   display: block;
@@ -89,7 +98,8 @@ body.lang-zh {
 
 .main--flow {
   justify-content: flex-start;
-  padding-top: 0.1rem;
+  padding-top: 0;
+  margin-top: -0.15rem;
 }
 
 .panel {
@@ -255,18 +265,26 @@ body.lang-zh {
   color: var(--color-ink);
 }
 
+/* Stage 4: larger, higher-contrast body like stage 3 reflection card */
 .quote--teaching {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 4vw, 1.35rem);
-  font-style: italic;
-  border-left-color: var(--color-primary);
-  line-height: 1.7;
+  font-size: clamp(1.22rem, 4.9vw, 1.52rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.68;
+  color: var(--color-deep);
+  border-left-width: 5px;
+  border-left-color: var(--color-deep);
+  padding: 1.45rem 1.35rem;
+  box-shadow: 0 4px 20px rgba(13, 61, 82, 0.1);
 }
 
 body.lang-zh .quote--teaching {
   font-family: var(--font-zh);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: clamp(1.18rem, 4.5vw, 1.44rem);
+  letter-spacing: 0.02em;
 }
 
 .kicker {
