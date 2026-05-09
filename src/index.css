@@ -10,15 +10,15 @@
   --color-ink-muted: #4a5c66;
   --color-lotus: #c9a227;
   --color-lotus-soft: rgba(201, 162, 39, 0.15);
-  --shadow-soft: 0 4px 24px rgba(13, 61, 82, 0.08);
-  --shadow-btn: 0 2px 12px rgba(26, 111, 138, 0.22);
-  --radius: 14px;
-  --radius-lg: 20px;
+  --shadow-soft: 0 6px 28px rgba(13, 61, 82, 0.1);
+  --shadow-btn: 0 4px 16px rgba(26, 111, 138, 0.24);
+  --radius: 16px;
+  --radius-lg: 24px;
   --font-serif: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
   --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-zh: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-  --space: clamp(1rem, 4vw, 1.5rem);
-  --max-w: 28rem;
+  --space: clamp(1.125rem, 4vw, 1.75rem);
+  --max-w: 32rem;
 }
 
 *,
@@ -29,14 +29,23 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* ~12.5% larger type & rem-based spacing site-wide */
+  font-size: 112.5%;
+}
+
+@media (min-width: 768px) {
+  html {
+    /* Extra step for tablets and ~10-inch displays */
+    font-size: 120%;
+  }
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.55;
+  font-size: 1.125rem;
+  line-height: 1.58;
   color: var(--color-ink);
   background: var(--color-mist);
   background-image:
@@ -58,7 +67,7 @@ body.lang-zh {
 
 .brand {
   text-align: center;
-  padding: clamp(0.75rem, 3vw, 1.25rem) 0 0.25rem;
+  padding: clamp(0.85rem, 3.2vw, 1.4rem) 0 0.35rem;
 }
 
 /* Stages 2–4: less space under logo before main content */
@@ -67,13 +76,13 @@ body.lang-zh {
 }
 
 .page--flow .brand__logo {
-  width: min(240px, 72vw);
+  width: min(17.5rem, 76vw);
 }
 
 /* Masked artwork: fills with exact --color-primary (see public/tzu-chi-60-logo-mask.png) */
 .brand__logo {
   display: block;
-  width: min(300px, 88vw);
+  width: min(20.5rem, 90vw);
   aspect-ratio: 1024 / 791;
   margin: 0 auto;
   background-color: var(--color-primary);
@@ -93,7 +102,7 @@ body.lang-zh {
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0.5rem 0 2rem;
+  padding: 0.65rem 0 2.25rem;
 }
 
 .main--flow {
@@ -106,7 +115,7 @@ body.lang-zh {
   display: none;
   flex-direction: column;
   align-items: stretch;
-  gap: 1.25rem;
+  gap: 1.45rem;
   animation: fadeIn 0.45s ease;
 }
 
@@ -117,7 +126,7 @@ body.lang-zh {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -128,11 +137,11 @@ body.lang-zh {
 .panel__title {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 5.5vw, 2rem);
+  font-size: clamp(1.85rem, 5.8vw, 2.35rem);
   font-weight: 600;
   color: var(--color-deep);
   text-align: center;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .panel__title--lang {
@@ -149,7 +158,7 @@ body.lang-zh {
 
 .panel__title-line--zh {
   font-family: var(--font-zh);
-  font-size: clamp(1.2rem, 4.2vw, 1.55rem);
+  font-size: clamp(1.35rem, 4.5vw, 1.7rem);
   font-weight: 600;
   color: var(--color-primary);
   letter-spacing: 0.02em;
@@ -159,38 +168,38 @@ body.lang-zh {
   margin: -0.25rem 0 0;
   text-align: center;
   color: var(--color-ink-muted);
-  font-size: 1rem;
+  font-size: 1.08rem;
 }
 
 .panel__hint {
   margin: -0.5rem 0 0;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.02rem;
   color: var(--color-ink-muted);
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.25rem;
+  gap: 0.85rem;
+  margin-top: 0.35rem;
 }
 
 .actions--stack {
-  margin-top: 1.5rem;
+  margin-top: 1.65rem;
 }
 
 .btn {
   appearance: none;
   border: none;
   border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  font-size: 1.05rem;
+  padding: 1.1rem 1.35rem;
+  font-size: 1.12rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  min-height: 52px;
+  min-height: 3.35rem;
   touch-action: manipulation;
 }
 
@@ -228,24 +237,24 @@ body.lang-zh {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .choice-btn {
   width: 100%;
   text-align: left;
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 1.2rem;
   border-radius: var(--radius);
   border: 1px solid rgba(26, 111, 138, 0.2);
   background: var(--color-white);
   color: var(--color-ink);
-  font-size: 1rem;
+  font-size: 1.08rem;
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
   box-shadow: var(--shadow-soft);
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
-  min-height: 52px;
+  min-height: 3.35rem;
   touch-action: manipulation;
 }
 
@@ -262,58 +271,58 @@ body.lang-zh {
 
 .quote {
   margin: 0;
-  padding: 1.35rem 1.25rem;
+  padding: 1.55rem 1.45rem;
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--color-lotus);
+  border-left: 5px solid var(--color-lotus);
   box-shadow: var(--shadow-soft);
-  font-size: clamp(1.05rem, 3.8vw, 1.2rem);
-  line-height: 1.65;
+  font-size: clamp(1.12rem, 4vw, 1.32rem);
+  line-height: 1.68;
   color: var(--color-ink);
 }
 
 /* Stage 4: larger, higher-contrast body like stage 3 reflection card */
 .quote--teaching {
   font-family: var(--font-serif);
-  font-size: clamp(1.22rem, 4.9vw, 1.52rem);
+  font-size: clamp(1.3rem, 5.1vw, 1.62rem);
   font-style: normal;
   font-weight: 600;
-  line-height: 1.68;
+  line-height: 1.66;
   color: var(--color-deep);
-  border-left-width: 5px;
+  border-left-width: 6px;
   border-left-color: var(--color-deep);
-  padding: 1.45rem 1.35rem;
-  box-shadow: 0 4px 20px rgba(13, 61, 82, 0.1);
+  padding: 1.6rem 1.5rem;
+  box-shadow: 0 5px 24px rgba(13, 61, 82, 0.11);
 }
 
 body.lang-zh .quote--teaching {
   font-family: var(--font-zh);
   font-style: normal;
   font-weight: 600;
-  font-size: clamp(1.18rem, 4.5vw, 1.44rem);
+  font-size: clamp(1.25rem, 4.7vw, 1.52rem);
   letter-spacing: 0.02em;
 }
 
 .kicker {
   margin: 0;
   text-align: center;
-  font-size: clamp(0.8rem, 2.8vw, 0.9rem);
+  font-size: clamp(0.92rem, 3.1vw, 1.02rem);
   font-weight: 600;
   letter-spacing: 0.02em;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--color-primary);
-  max-width: 36ch;
+  max-width: 38ch;
   margin-inline: auto;
 }
 
 .foot {
   text-align: center;
-  padding: 1rem 0 0.5rem;
+  padding: 1.15rem 0 0.65rem;
 }
 
 .foot__line {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--color-ink-muted);
   opacity: 0.85;
 }
@@ -330,9 +339,3 @@ body.lang-zh .quote--teaching {
   border: 0;
 }
 
-@media (min-width: 480px) {
-  .btn,
-  .choice-btn {
-    min-height: 48px;
-  }
-}
