@@ -198,6 +198,13 @@ body.lang-zh {
   transform: scale(0.98);
 }
 
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .btn--primary {
   background: linear-gradient(165deg, var(--color-primary-soft), var(--color-primary));
   color: var(--color-white);

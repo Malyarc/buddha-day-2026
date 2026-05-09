@@ -18,6 +18,7 @@ export default function App() {
   const [lang, setLang] = useState<Lang | null>(null);
   const [reflectText, setReflectText] = useState("");
   const [teachingText, setTeachingText] = useState("");
+  const [reflectNextReady, setReflectNextReady] = useState(false);
 
   const copy = useMemo(() => (lang ? uiStrings[lang] : uiStrings.en), [lang]);
 
@@ -31,6 +32,13 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase !== "reflect") return;
+    setReflectNextReady(false);
+    const id = window.setTimeout(() => setReflectNextReady(true), 2000);
+    return () => window.clearTimeout(id);
   }, [phase]);
 
   const selectLang = useCallback((next: Lang) => {
@@ -135,7 +143,12 @@ export default function App() {
           </h2>
           <p className="quote quote--prompt">{reflectText}</p>
           <div className="actions">
-            <button type="button" className="btn btn--primary" onClick={goTeaching}>
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={goTeaching}
+              disabled={!reflectNextReady}
+            >
               {copy.next}
             </button>
           </div>
